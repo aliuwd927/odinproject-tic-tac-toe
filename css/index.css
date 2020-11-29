@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    border-style: solid;
+    border-color: red;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: green;
+}
+
+.gameboard{
+    width: 35%;
+    height: 55%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    'squares squares squares'
+    'squares squares squares'
+    'squares squares squares';
+}
+
+.playerCreate{
+    margin: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: black;
+}
+
+.playerOne, .playerTwo{
+    margin-top: 10px;
+}
+
+.squares{
+    border-style: solid;
+    border-color: purple;
+}
