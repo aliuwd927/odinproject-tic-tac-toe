@@ -1,32 +1,35 @@
-const gameboard = document.querySelector('.gameboard');
-const playerCreate = document.querySelector('.playerCreate');
+const gameboardDOM = document.querySelector('.gameboard');
+const playerCreateDOM = document.querySelector('.playerCreate');
+
+const players = [];
 
 function Player(name, marker){
     this.name = name;
     this.marker = marker;
 };
 
-playerCreate.addEventListener('click', (e)=>{
+playerCreateDOM.addEventListener('click', (e)=>{
     e.preventDefault;
-    console.log(e.target);
-})
+    if(e.target.value === 'playerOne'){
+        players.push(new Player(e.target.value,'X'));
+    }else if(e.target.value === 'playerTwo'){
+        players.push(new Player(e.target.value, 'O'));
+    }
+});
 
-//const playerOne = new Player('Player One', 'X');
-//const playerTwo = new Player('Player Two', 'O');
 
 const gameboardArray = [];
 
 const createBoard = (()=>{
     for(let i = 0; i < 9 ; i++){
+        let item = [i];
         let squares = document.createElement('div');
-        squares.classList.add('squares');
-        gameboard.appendChild(squares);
+        squares.classList.add('squares', item);
+        gameboardDOM.appendChild(squares);
         gameboardArray.push({squares});
     }
 })();
 
-gameboard.addEventListener('click',(e) =>{
-   for(let i = 0; i < gameboardArray.length; i++){
-       console.log(gameboardArray[i]);
-   }
+gameboardDOM.addEventListener('click',(e) =>{
+   console.log(e.target.classList.value);
 });
