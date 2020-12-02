@@ -22,7 +22,6 @@ playerCreateDOM.addEventListener('click', (e)=>{
     }
 });
 
-
 const gameboardArray = [];
 
 const createBoard = (()=>{
@@ -35,7 +34,16 @@ const createBoard = (()=>{
     }
 })();
 
-gameboardDOM.addEventListener('click',(e) =>{
-  if(players[0].displayPlayerInfo() === 'playerOne');
-    alert();
+gameboardDOM.addEventListener('mouseover',(e) =>{
+  //When player hovers over a box
+    console.log(e.target);
+
+  //When player clicks, mark the spot.
+   gameboardDOM.addEventListener('click', (e)=>{
+    console.log(e.target);
+    if(players ===  undefined || players.length == 0){
+        alert('You need to create a player first, click on player 1 or player 2');
+    };
+        });
+  //
 });
