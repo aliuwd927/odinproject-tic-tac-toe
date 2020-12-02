@@ -43,18 +43,15 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
     console.log(e.target);
     if(players ===  undefined || players.length == 0){
         alert('You need to create a player first, click on player 1 or player 2');
-
-        //When user clicks on a square, input X or O
-
-
-
-        //Write a for loops that checks if X or O is already there, 
-        //If there is, throw and err.
-
-
-        
-
     };
+
+    //When user clicks on a square, input X or O
+
+
+
+    //Write a for loops that checks if X or O is already there, 
+    //If there is, throw and err.
+
         }, {once: true});
   //
 });
