@@ -45,6 +45,8 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
             hoverOver.style.opacity = 1.0;
         });
     };
+//Who Starts First?
+
 //Change Highlight by turns.
     /*
         If playerOne clicks, endturn(whoClicked).
