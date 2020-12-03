@@ -35,7 +35,7 @@ const createBoard = (()=>{
 })();
 
 gameboardDOM.addEventListener('mouseover',(e) =>{
-  //When player hovers over a box
+//When player hovers over a box
     console.log(e.target);
     let hoverOver = e.target;
     if(players[0].name == 'playerOne'){
@@ -45,8 +45,7 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
             hoverOver.style.opacity = 1.0;
         });
     };
-
- //Change Highlight by turns.
+//Change Highlight by turns.
     /*
         If playerOne clicks, endturn(whoClicked).
             Else If playerOne not click, contiue turn.
@@ -54,21 +53,15 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
             Else If playerTwo not click, continue turn.
     */
 
-  //When player clicks, mark the spot, click once.
-  /* 
-  gameboardDOM.addEventListener('click', (e)=>{
-    if(players ===  undefined || players.length == 0){
-        alert('You need to create a player first, click on player 1 or player 2');
-    };
+//When player clicks, mark the spot, click once.
+  
 
-    //When user clicks on a square, input X or O
+//When user clicks on a square, input X or O
     
 
 
-    //Write a for loops that checks if X or O is already there, 
-    //If there is, throw and err.
+//Write a for loops that checks if X or O is already there, 
+//If there is, throw and err.
 
-        });
-    */
-  //
+
 });
