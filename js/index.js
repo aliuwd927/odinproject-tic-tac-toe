@@ -15,9 +15,11 @@ playerCreateDOM.addEventListener('click', (e)=>{
     e.preventDefault;
     if(e.target.value === 'playerOne'){
         players.push(new Player(e.target.value,'X'));
+        //User alert for now, will make div later.
         alert('Player One Created, You are X')
     }else if(e.target.value === 'playerTwo'){
         players.push(new Player(e.target.value, 'O'));
+        //User alert for now, will make div later.
         alert('Player Two Created, You are O');
     }
 });
@@ -35,9 +37,13 @@ const createBoard = (()=>{
 })();
 
 gameboardDOM.addEventListener('mouseover',(e) =>{
-//When player hovers over a box
-    console.log(e.target);
+//When player hovers over box test, reogranize after picking a player to start.
+    //console.log(e.target);
     let hoverOver = e.target;
+    if(players == undefined || players.length == 0){
+        console.log('You must select both players');
+    };
+    /*
     if(players[0].name == 'playerOne'){
         //console.log(players[0].name);
         hoverOver.style.opacity = 0.3;
@@ -45,7 +51,15 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
             hoverOver.style.opacity = 1.0;
         });
     };
+    */
 //Who Starts First?
+    for(let i = 0; i < players.length; i++){
+        //console.log([i]);
+        let playerToStart = [i + 1] ;
+        let number = Math.floor(Math.random(0.5)* Math.floor(playerToStart));
+        console.log(number);
+       
+    };
 
 //Change Highlight by turns.
     /*
@@ -67,3 +81,7 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
 
 
 });
+
+function randomNumGen(whoStartsFrist){
+    
+}
