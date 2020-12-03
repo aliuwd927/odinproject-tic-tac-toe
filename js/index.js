@@ -45,9 +45,18 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
             hoverOver.style.opacity = 1.0;
         });
     };
+
+ //Change Highlight by turns.
+    /*
+        If playerOne clicks, endturn(whoClicked).
+            Else If playerOne not click, contiue turn.
+        If playerTwo clicks, endturn(whoClicked).
+            Else If playerTwo not click, continue turn.
+    */
+
   //When player clicks, mark the spot, click once.
-   gameboardDOM.addEventListener('click', (e)=>{
-    console.log(e.target);
+  /* 
+  gameboardDOM.addEventListener('click', (e)=>{
     if(players ===  undefined || players.length == 0){
         alert('You need to create a player first, click on player 1 or player 2');
     };
@@ -59,6 +68,7 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
     //Write a for loops that checks if X or O is already there, 
     //If there is, throw and err.
 
-        }, {once: true});
+        });
+    */
   //
 });
