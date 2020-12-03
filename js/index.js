@@ -38,13 +38,13 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
   //When player hovers over a box
     console.log(e.target);
     let hoverOver = e.target;
-    if(players[0].name = true){
+    if(players[0].name == 'playerOne'){
         //console.log(players[0].name);
         hoverOver.style.opacity = 0.3;
         gameboardDOM.addEventListener('mouseout', (e)=>{
             hoverOver.style.opacity = 1.0;
         });
-    }
+    };
   //When player clicks, mark the spot, click once.
    gameboardDOM.addEventListener('click', (e)=>{
     console.log(e.target);
