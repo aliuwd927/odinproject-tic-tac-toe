@@ -44,11 +44,9 @@ startButton.addEventListener('click',(e)=>{
     const whoStartsFirst = (firstToStart) =>{
         let playerToStart = Math.floor(Math.random() * firstToStart.length);
         if(playerToStart === 0){
-            console.log(firstToStart[0].name);
-            playerToBegin = firstToStart[0].name;
+            return playerToBegin = firstToStart[0].name;
         }else if(playerToStart === 1){
-            console.log(firstToStart[1].name);
-            playerToBegin = firstToStart[1].name;
+            return playerToBegin = firstToStart[1].name;
         };
     };
     
