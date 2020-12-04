@@ -61,17 +61,26 @@ startButton.addEventListener('click',(e)=>{
 });
 
 gameboardDOM.addEventListener('mouseover',(e) =>{
-//When player hovers over box test, reogranize after picking a player to start.
-    //console.log(e.target);
+//When player hovers over box test.
     let hoverOver = e.target; 
-    
-    if(playerToBegin == players[0].name){
+    if(playerToBegin == 'playerOne'){
         //console.log(players[0].name);
+        hoverOver.style.backgroundColor = 'black';
         hoverOver.style.opacity = 0.3;
         gameboardDOM.addEventListener('mouseout', (e)=>{
+            hoverOver.style.backgroundColor = '';
+            hoverOver.style.opacity = 1.0;
+        });
+    }else if(playerToBegin == 'playerTwo'){
+        //console.log(players[0].name);
+        hoverOver.style.backgroundColor = 'red';
+        hoverOver.style.opacity = 0.3;
+        gameboardDOM.addEventListener('mouseout', (e)=>{
+            hoverOver.style.backgroundColor = '';
             hoverOver.style.opacity = 1.0;
         });
     };
+
 //Change Highlight by turns.
     /*
         If playerOne clicks, endturn(whoClicked).
