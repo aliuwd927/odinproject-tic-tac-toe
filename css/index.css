@@ -45,7 +45,7 @@ body{
     border-color: black;
 }
 
-.playerOne, .playerTwo{
+.playerOne, .playerTwo, .startButton{
     margin-top: 10px;
 }
 

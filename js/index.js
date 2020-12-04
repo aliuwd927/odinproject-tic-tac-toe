@@ -1,5 +1,6 @@
 const gameboardDOM = document.querySelector('.gameboard');
 const playerCreateDOM = document.querySelector('.playerCreate');
+const startButton = document.querySelector('.startButton');
 
 const players = [];
 
@@ -36,31 +37,41 @@ const createBoard = (()=>{
     }
 })();
 
+let playerToBegin = undefined;
+
+startButton.addEventListener('click',(e)=>{
+    //console.log(e.target.value);
+    const whoStartsFirst = (firstToStart) =>{
+        let playerToStart = Math.floor(Math.random() * firstToStart.length);
+        if(playerToStart === 0){
+            console.log(firstToStart[0].name);
+            playerToBegin = firstToStart[0].name;
+        }else if(playerToStart === 1){
+            console.log(firstToStart[1].name);
+            playerToBegin = firstToStart[1].name;
+        };
+    };
+    
+    if(players == undefined || players.length == 0 || players.length < 2){
+        alert('Both Players needs to be selected before starting');
+    }else if(players !== undefined && players.length == 2){
+        whoStartsFirst(players);
+    };
+
+});
+
 gameboardDOM.addEventListener('mouseover',(e) =>{
 //When player hovers over box test, reogranize after picking a player to start.
     //console.log(e.target);
-    let hoverOver = e.target;
-    if(players == undefined || players.length == 0){
-        console.log('You must select both players');
-    };
-    /*
-    if(players[0].name == 'playerOne'){
+    let hoverOver = e.target; 
+    
+    if(playerToBegin == players[0].name){
         //console.log(players[0].name);
         hoverOver.style.opacity = 0.3;
         gameboardDOM.addEventListener('mouseout', (e)=>{
             hoverOver.style.opacity = 1.0;
         });
     };
-    */
-//Who Starts First?
-    for(let i = 0; i < players.length; i++){
-        //console.log([i]);
-        let playerToStart = [i + 1] ;
-        let number = Math.floor(Math.random(0.5)* Math.floor(playerToStart));
-        console.log(number);
-       
-    };
-
 //Change Highlight by turns.
     /*
         If playerOne clicks, endturn(whoClicked).
@@ -82,6 +93,3 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
 
 });
 
-function randomNumGen(whoStartsFrist){
-    
-}
