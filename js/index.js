@@ -96,8 +96,6 @@ function updateGlobalPlayer(updateToVar){
                 console.log('Clicked');
                 //Mark the Dom
                 //endTurn 
-            }else{
-                console.log('chk logic');
             }
         });  
         break;
