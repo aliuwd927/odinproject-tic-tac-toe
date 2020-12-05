@@ -43,11 +43,12 @@ startButton.addEventListener('click',(e)=>{
     //console.log(e.target.value);
     const whoStartsFirst = (firstToStart) =>{
         let playerToStart = Math.floor(Math.random() * firstToStart.length);
-        if(playerToStart === 0 || playerToStart === 1){
+        if(playerToStart === 0){
             updateGlobalPlayer(firstToStart[0].name)
         }else if(playerToStart === 1){
             updateGlobalPlayer(firstToStart[1].name)
         };
+        console.log(playerToStart);
     };
     
     if(players == undefined || players.length == 0 || players.length < 2){
@@ -85,16 +86,6 @@ let currentPlayer;
 function updateGlobalPlayer(updateToVar){
     playerToBegin = updateToVar;
     currentPlayer = updateToVar;
-    while(currentPlayer = true){
-        console.log(currentPlayer);
-        /*
-            Comment Out so it wont crash JIC...
-        
-        
-        
-        */
-        break;
-    };
 };
 
 
