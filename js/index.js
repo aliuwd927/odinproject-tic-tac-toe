@@ -48,7 +48,6 @@ startButton.addEventListener('click',(e)=>{
         }else if(playerToStart === 1){
             updateGlobalPlayer(firstToStart[1].name)
         };
-        console.log(playerToStart);
     };
     
     if(players == undefined || players.length == 0 || players.length < 2){
@@ -86,6 +85,19 @@ let currentPlayer;
 function updateGlobalPlayer(updateToVar){
     playerToBegin = updateToVar;
     currentPlayer = updateToVar;
+    while(currentPlayer = true){
+        
+            //Comment Out so it wont crash JIC...
+        if(gameboardDOM.addEventListener('click',()=>{})){
+            console.log(currentPlayer);
+        }else{
+            console.log('chk logic');
+        }
+        
+        
+        
+        break;
+    };
 };
 
 
