@@ -48,7 +48,7 @@ startButton.addEventListener('click',(e)=>{
         }else if(playerToStart === 1){
             updateGlobalPlayer(firstToStart[1].name)
         };
-        console.log(playerToStart);
+        //console.log(playerToStart);
     };
     
     if(players == undefined || players.length == 0 || players.length < 2){
@@ -86,10 +86,19 @@ let currentPlayer;
 function updateGlobalPlayer(updateToVar){
     playerToBegin = updateToVar;
     currentPlayer = updateToVar;
-    while(currentPlayer = true){ 
+    while(currentPlayer === 'playerOne' || currentPlayer === 'playerTwo'){ 
+        console.log(typeof currentPlayer);
             //Comment Out so it wont crash JIC...
         gameboardDOM.addEventListener('click',(e) => {
-            console.log(e.target);
+            //console.log(currentPlayer);
+            let playerClicked = e.target;
+            if(playerClicked = true){
+                console.log('Clicked');
+                //Mark the Dom
+                //endTurn 
+            }else{
+                console.log('chk logic');
+            }
         });  
         break;
     };
