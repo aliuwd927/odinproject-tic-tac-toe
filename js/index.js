@@ -37,16 +37,16 @@ const createBoard = (()=>{
     }
 })();
 
-let playerToBegin = undefined;
+let playerToBegin;
 
 startButton.addEventListener('click',(e)=>{
     //console.log(e.target.value);
     const whoStartsFirst = (firstToStart) =>{
         let playerToStart = Math.floor(Math.random() * firstToStart.length);
-        if(playerToStart === 0){
-            return playerToBegin = firstToStart[0].name;
+        if(playerToStart === 0 || playerToStart === 1){
+            updateGlobalPlayer(firstToStart[0].name)
         }else if(playerToStart === 1){
-            return playerToBegin = firstToStart[1].name;
+            updateGlobalPlayer(firstToStart[1].name)
         };
     };
     
@@ -59,7 +59,7 @@ startButton.addEventListener('click',(e)=>{
 });
 
 gameboardDOM.addEventListener('mouseover',(e) =>{
-//When player hovers over box test.
+//Player 1 Hover = Black , Player 2 Hover = Red
     let hoverOver = e.target; 
     if(playerToBegin === 'playerOne'){
         //console.log(players[0].name);
@@ -78,14 +78,26 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
             hoverOver.style.opacity = 1.0;
         });
     };
+});
 
-//Change Highlight by turns.
-    /*
-        If playerOne clicks, endturn(whoClicked).
-            Else If playerOne not click, contiue turn.
-        If playerTwo clicks, endturn(whoClicked).
-            Else If playerTwo not click, continue turn.
-    */
+let currentPlayer;
+
+function updateGlobalPlayer(updateToVar){
+    playerToBegin = updateToVar;
+    currentPlayer = updateToVar;
+    while(currentPlayer = true){
+        console.log(currentPlayer);
+        /*
+            Comment Out so it wont crash JIC...
+        
+        
+        
+        */
+        break;
+    };
+};
+
+
 
 //When player clicks, mark the spot, click once.
   
@@ -98,5 +110,5 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
 //If there is, throw and err.
 
 
-});
+
 
