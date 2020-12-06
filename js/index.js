@@ -104,11 +104,11 @@ function updateGlobalPlayer(updateToVar){
 
 function endTurn(endCurrentTurn){
     if(endCurrentTurn === 'playerOne'){
-        playerToBegin = players[1].name
+        playerToBegin = players[1].name;
         currentPlayer = players[1].name;
         console.log(currentPlayer);
     }else if(endCurrentTurn === 'playerTwo'){
-        playerToBegin = players[0].name
+        playerToBegin = players[0].name;
         currentPlayer = players[0].name;
         console.log(currentPlayer);
     };
