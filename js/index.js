@@ -115,12 +115,7 @@ function endTurn(endCurrentTurn){
 }
 
 //When player clicks, mark the spot, click once.
-  
-
 //When user clicks on a square, input X or O
-    
-
-
 //Write a for loops that checks if X or O is already there, 
 //If there is, throw and err.
 
