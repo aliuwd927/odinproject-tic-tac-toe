@@ -87,21 +87,32 @@ function updateGlobalPlayer(updateToVar){
     playerToBegin = updateToVar;
     currentPlayer = updateToVar;
     while(currentPlayer === 'playerOne' || currentPlayer === 'playerTwo'){ 
-        console.log(typeof currentPlayer);
             //Comment Out so it wont crash JIC...
         gameboardDOM.addEventListener('click',(e) => {
             //console.log(currentPlayer);
             let playerClicked = e.target;
-            if(playerClicked = true){
-                console.log('Clicked');
+            if(playerClicked){
+                //console.log(playerClicked);
                 //Mark the Dom
                 //endTurn 
+                endTurn(currentPlayer);
             }
         });  
         break;
     };
 };
 
+function endTurn(endCurrentTurn){
+    if(endCurrentTurn === 'playerOne'){
+        playerToBegin = players[1].name
+        currentPlayer = players[1].name;
+        console.log(currentPlayer);
+    }else if(endCurrentTurn === 'playerTwo'){
+        playerToBegin = players[0].name
+        currentPlayer = players[0].name;
+        console.log(currentPlayer);
+    };
+}
 
 //When player clicks, mark the spot, click once.
   
