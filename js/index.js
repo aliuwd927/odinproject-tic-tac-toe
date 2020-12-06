@@ -9,7 +9,7 @@ function Player(name, marker){
     this.marker = marker;
     this.displayPlayerInfo = () => {
         return `${name}\u00A0${marker}`;
-    }
+    };
 };
 
 playerCreateDOM.addEventListener('click', (e)=>{
@@ -22,7 +22,7 @@ playerCreateDOM.addEventListener('click', (e)=>{
         players.push(new Player(e.target.value, 'O'));
         //User alert for now, will make div later.
         alert('Player Two Created, You are O');
-    }
+    };
 });
 
 const gameboardArray = [];
@@ -34,7 +34,7 @@ const createBoard = (()=>{
         squares.classList.add('squares', item);
         gameboardDOM.appendChild(squares);
         gameboardArray.push({squares});
-    }
+    };
 })();
 
 let playerToBegin;
@@ -111,7 +111,7 @@ function endTurn(endCurrentTurn){
         currentPlayer = players[0].name;
         console.log(currentPlayer);
     };
-}
+};
 
 //When player clicks, mark the spot, click once.
 //When user clicks on a square, input X or O
