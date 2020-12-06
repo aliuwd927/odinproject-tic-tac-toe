@@ -93,8 +93,7 @@ function updateGlobalPlayer(updateToVar){
             let playerClicked = e.target;
             if(playerClicked){
                 //console.log(playerClicked);
-                //Mark the Dom
-                //endTurn 
+                //Mark the Dom 
                 endTurn(currentPlayer);
             }
         });  
