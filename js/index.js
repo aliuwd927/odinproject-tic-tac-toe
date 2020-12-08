@@ -114,11 +114,6 @@ function playerMarkOnDom(playerToDom, domToMark){
     };
 };
 
-
-
+//Look at Gameboard Array
 //Write a for loops that checks if X or O is already there, 
 //If there is, throw and err.
-
-
-
-
