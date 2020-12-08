@@ -48,7 +48,6 @@ startButton.addEventListener('click',(e)=>{
         }else if(playerToStart === 1){
             updateGlobalPlayer(firstToStart[1].name)
         };
-        //console.log(playerToStart);
     };
     
     if(players == undefined || players.length == 0 || players.length < 2){
@@ -63,7 +62,6 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
 //Player 1 Hover = Black , Player 2 Hover = Red
     let hoverOver = e.target; 
     if(playerToBegin === 'playerOne'){
-        //console.log(players[0].name);
         hoverOver.style.backgroundColor = 'black';
         hoverOver.style.opacity = 0.3;
         gameboardDOM.addEventListener('mouseout', (e)=>{
@@ -71,7 +69,6 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
             hoverOver.style.opacity = 1.0;
         });
     }else if(playerToBegin === 'playerTwo'){
-        //console.log(players[0].name);
         hoverOver.style.backgroundColor = 'red';
         hoverOver.style.opacity = 0.3;
         gameboardDOM.addEventListener('mouseout', (e)=>{
@@ -87,14 +84,12 @@ function updateGlobalPlayer(updateToVar){
     playerToBegin = updateToVar;
     currentPlayer = updateToVar;
     while(currentPlayer === 'playerOne' || currentPlayer === 'playerTwo'){ 
-            //Comment Out so it wont crash JIC...
         gameboardDOM.addEventListener('click',(e) => {
-            //console.log(currentPlayer);
             let playerClicked = e.target;
             if(playerClicked){
-                //console.log(playerClicked);
-                //Mark the Dom 
+
                 endTurn(currentPlayer);
+                playerMarkOnDom(currentPlayer,playerClicked);
             }
         });  
         break;
@@ -105,16 +100,22 @@ function endTurn(endCurrentTurn){
     if(endCurrentTurn === 'playerOne'){
         playerToBegin = players[1].name;
         currentPlayer = players[1].name;
-        console.log(currentPlayer);
     }else if(endCurrentTurn === 'playerTwo'){
         playerToBegin = players[0].name;
         currentPlayer = players[0].name;
-        console.log(currentPlayer);
     };
 };
 
-//When player clicks, mark the spot, click once.
-//When user clicks on a square, input X or O
+function playerMarkOnDom(playerToDom, domToMark){
+    if(playerToDom == players[0].name){
+        return domToMark.textContent = players[0].marker;
+    }else if(playerToDom == players[1].name){
+        return domToMark.textContent = players[1].marker
+    };
+};
+
+
+
 //Write a for loops that checks if X or O is already there, 
 //If there is, throw and err.
 
