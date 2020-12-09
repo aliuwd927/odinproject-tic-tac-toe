@@ -108,12 +108,20 @@ function endTurn(endCurrentTurn){
 
 function playerMarkOnDom(playerToDom, domToMark){
     if(playerToDom == players[0].name){
+        test();
         return domToMark.textContent = players[0].marker;
+
     }else if(playerToDom == players[1].name){
-        return domToMark.textContent = players[1].marker
+        test();
+        return domToMark.textContent = players[1].marker;
     };
 };
 
+function test(){
+    gameboardArray.forEach(element =>{
+        console.log(element);
+    })
+}
 //Look at Gameboard Array
 //Write a for loops that checks if X or O is already there, 
 //If there is, throw and err.
