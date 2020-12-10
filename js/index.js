@@ -62,7 +62,7 @@ gameboardDOM.addEventListener('mouseover',(e) =>{
 //Player 1 Hover = Black , Player 2 Hover = Red
     let hoverOver = e.target; 
     if(playerToBegin === 'playerOne'){
-        hoverOver.style.backgroundColor = 'black';
+        hoverOver.style.backgroundColor = 'yellow';
         hoverOver.style.opacity = 0.3;
         gameboardDOM.addEventListener('mouseout', (e)=>{
             hoverOver.style.backgroundColor = '';
@@ -118,10 +118,18 @@ function playerMarkOnDom(playerToDom, domToMark){
 };
 
 function test(){
-    gameboardArray.forEach(element =>{
-        console.log(element);
-    })
+    for(let i = 0; i < gameboardArray.length; i++){
+        //console.log(gameboardArray[i]); // Prints the gameboard, When viewed, it has value
+      let chkBoard = gameboardArray[i].squares.innerHTML;
+      if(chkBoard == players[0].marker || chkBoard == players[1].marker){
+          return false;
+      }
+        
+    };
+    
 }
-//Look at Gameboard Array
+
+
+
 //Write a for loops that checks if X or O is already there, 
 //If there is, throw and err.
