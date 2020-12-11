@@ -107,29 +107,18 @@ function endTurn(endCurrentTurn){
 };
 
 function playerMarkOnDom(playerToDom, domToMark){
-    if(playerToDom == players[0].name){
-        test();
-        return domToMark.textContent = players[0].marker;
-
-    }else if(playerToDom == players[1].name){
-        test();
-        return domToMark.textContent = players[1].marker;
+    if(playerToDom == players[0].name || playerToDom == players[1].name){
+        for(let i = 0; i < gameboardArray.length; i++){
+            console.log(gameboardArray[i]); // Prints the gameboard, When viewed, it has value
+          let chkBoard = gameboardArray[i].squares;
+          console.log(chkBoard);
+          if(chkBoard.innerHTML === '' && playerToDom == players[0].name){ 
+              return domToMark.textContent = players[0].marker;
+            }else if(chkBoard.innerHTML === '' && playerToDom == players[1].name){
+                return domToMark.textContent = players[1].marker;
+            }
+        };
+    }else {
+        return false;
     };
 };
-
-function test(){
-    for(let i = 0; i < gameboardArray.length; i++){
-        //console.log(gameboardArray[i]); // Prints the gameboard, When viewed, it has value
-      let chkBoard = gameboardArray[i].squares.innerHTML;
-      if(chkBoard == players[0].marker || chkBoard == players[1].marker){
-          return false;
-      }
-        
-    };
-    
-}
-
-
-
-//Write a for loops that checks if X or O is already there, 
-//If there is, throw and err.
