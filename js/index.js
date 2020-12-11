@@ -40,7 +40,6 @@ const createBoard = (()=>{
 let playerToBegin;
 
 startButton.addEventListener('click',(e)=>{
-    //console.log(e.target.value);
     const whoStartsFirst = (firstToStart) =>{
         let playerToStart = Math.floor(Math.random() * firstToStart.length);
         if(playerToStart === 0){
@@ -59,7 +58,7 @@ startButton.addEventListener('click',(e)=>{
 });
 
 gameboardDOM.addEventListener('mouseover',(e) =>{
-//Player 1 Hover = Black , Player 2 Hover = Red
+//Player 1 Hover = Yellow , Player 2 Hover = Red
     let hoverOver = e.target; 
     if(playerToBegin === 'playerOne'){
         hoverOver.style.backgroundColor = 'yellow';
@@ -87,8 +86,7 @@ function updateGlobalPlayer(updateToVar){
         gameboardDOM.addEventListener('click',(e) => {
             let playerClicked = e.target;
             if(playerClicked){
-
-                endTurn(currentPlayer); //Move this into the 
+                endTurn(currentPlayer);
                 playerMarkOnDom(currentPlayer,playerClicked);
             }
         });  
@@ -109,16 +107,17 @@ function endTurn(endCurrentTurn){
 function playerMarkOnDom(playerToDom, domToMark){
     if(playerToDom == players[0].name || playerToDom == players[1].name){
         for(let i = 0; i < gameboardArray.length; i++){
-            console.log(gameboardArray[i]); // Prints the gameboard, When viewed, it has value
-          let chkBoard = gameboardArray[i].squares;
-          console.log(chkBoard);
-          if(chkBoard.innerHTML === '' && playerToDom == players[0].name){ 
-              return domToMark.textContent = players[0].marker;
-            }else if(chkBoard.innerHTML === '' && playerToDom == players[1].name){
-                return domToMark.textContent = players[1].marker;
-            }
-        };
-    }else {
+            // Prints the gameboard, When viewed, it has value
+        console.log(gameboardArray[i]); 
+        let chkBoard = gameboardArray[i].squares;
+        console.log(chkBoard);
+        if(chkBoard.innerHTML === '' && playerToDom == players[0].name){ 
+            return domToMark.textContent = players[0].marker;
+        }else if(chkBoard.innerHTML === '' && playerToDom == players[1].name){
+            return domToMark.textContent = players[1].marker;
+        }
+            };
+    }else{
         return false;
     };
 };
