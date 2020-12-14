@@ -31,6 +31,7 @@ const createBoard = (()=>{
     for(let i = 0; i < 9 ; i++){
         let item = [i];
         let squares = document.createElement('div');
+        squares.innerHTML = '';
         squares.classList.add('squares', item);
         gameboardDOM.appendChild(squares);
         gameboardArray.push({squares});
@@ -86,7 +87,6 @@ function updateGlobalPlayer(updateToVar){
         gameboardDOM.addEventListener('click',(e) => {
             let playerClicked = e.target;
             if(playerClicked){
-                endTurn(currentPlayer);
                 playerMarkOnDom(currentPlayer,playerClicked);
             }
         });  
@@ -105,19 +105,44 @@ function endTurn(endCurrentTurn){
 };
 
 function playerMarkOnDom(playerToDom, domToMark){
-    if(playerToDom == players[0].name || playerToDom == players[1].name){
+   //console.log(playerToDom, domToMark)
+
+   for(let i = 0; i < gameboardArray.length; i++){
+    let chkBoard = gameboardArray[i].squares;
+    if(domToMark == chkBoard  && playerToDom == players[0].name){
+        chkBoard.textContent = players[0].marker;
+        gameboardArray.forEach(element =>{
+            console.log(element.squares.textContent);
+            domToMark.removeEventListener('click',endTurn(playerToDom));
+        });
+    }else if(domToMark == chkBoard  && playerToDom == players[1].name){
+            gameboardArray.forEach(element =>{
+                console.log(element.squares.textContent);
+                domToMark.removeEventListener('click',endTurn(playerToDom));
+            });
+    }
+        };
+};
+
+
+/*
+if(playerToDom == players[0].name || playerToDom == players[1].name){
         for(let i = 0; i < gameboardArray.length; i++){
             // Prints the gameboard, When viewed, it has value
-        console.log(gameboardArray[i]); 
+        //console.log(gameboardArray[i]); 
         let chkBoard = gameboardArray[i].squares;
-        console.log(chkBoard);
+        //console.log(chkBoard);
         if(chkBoard.innerHTML === '' && playerToDom == players[0].name){ 
+            console.log(chkBoard);
             return domToMark.textContent = players[0].marker;
         }else if(chkBoard.innerHTML === '' && playerToDom == players[1].name){
+            console.log(chkBoard);
             return domToMark.textContent = players[1].marker;
         }
             };
     }else{
         return false;
     };
-};
+
+
+*/
