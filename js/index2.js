@@ -1,22 +1,38 @@
-const gameboardContainer = document.querySelector('.gameboard');
+let gameBoardObject = (()=>{
+  const gameboardContainer = document.querySelector('.gameboard');
 
-let gameboardObject = {
+  const gameboard = ['','','','','','','','',''];
 
-  gameboard: ['','','','','','','','',''],
-  display: () =>{
-    for(let i = 0; i< gameboardObject.gameboard.length; i++){
-    let items = [i];
-    let squares = document.createElement('div');
-    squares.classList.add('squares', items);
-    gameboardContainer.appendChild(squares);
+  const displayBoard = () =>{
+    for(let i = 0; i < gameboard.length; i++){
+      let squares = document.createElement('div');
+      squares.classList.add('squares');
+      squares.innerHTML = '';
+      gameboardContainer.appendChild(squares);
+
     };
+  };
+
+  const emptySquares = () =>{
+    let squares = document.querySelector('.squares');
+    return squares;
   }
-};
+  return{
+    displayBoard,
+    emptySquares
+  };
+})();
 
-let playerObject = {
+let displayController = (()=>{
 
-};
+  
 
-const playerCreate = undefined;
+  const gameStart = () =>{
 
-gameboardObject.display();
+  }
+
+
+
+});
+
+gameBoardObject.displayBoard();
