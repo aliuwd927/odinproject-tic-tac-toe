@@ -1,38 +1,55 @@
 let gameBoardObject = (()=>{
   const gameboardContainer = document.querySelector('.gameboard');
 
-  const gameboard = ['','','','','','','','',''];
-
+  let gameboard = [];
+  
   const displayBoard = () =>{
-    for(let i = 0; i < gameboard.length; i++){
+    for(let i = 0; i < 9; i++){
+      let items = [i];
+      //console.log(items);
       let squares = document.createElement('div');
-      squares.classList.add('squares');
+      squares.classList.add('squares', items);
       squares.innerHTML = '';
       gameboardContainer.appendChild(squares);
+      gameboard.push(squares);
 
     };
   };
-
-  const emptySquares = () =>{
-    let squares = document.querySelector('.squares');
-    return squares;
-  }
   return{
     displayBoard,
-    emptySquares
+    gameboardContainer,
+    gameboard,
   };
 })();
 
 let displayController = (()=>{
 
-  
+  let currentPlayerMark = 'X';
 
   const gameStart = () =>{
+  currentPlayerMark = 'X';
+  };
 
-  }
+  const markBoardDom = () =>{
+    for(let i= 0; i < gameBoardObject.gameboard.length; i++){
+        //console.log(gameBoardObject.gameboard[i]); //For event listener
+        gameBoardObject.gameboard[i].addEventListener('click', (e)=>{
+        console.log(e.target);
+      });
+      
+    };
+  };
+  
+  return{
+    gameStart,
+    currentPlayerMark,
+    markBoardDom
+  };
 
+})();
 
-
-});
 
 gameBoardObject.displayBoard();
+displayController.gameStart();
+displayController.markBoardDom();
+
