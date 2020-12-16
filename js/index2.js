@@ -23,18 +23,33 @@ let gameBoardObject = (()=>{
 })();
 
 let displayController = (()=>{
-
+//Idk how to start this LOL.
   let currentPlayerMark = 'X';
 
   const gameStart = () =>{
-  currentPlayerMark = 'X';
+  currentPlayerMark;
   };
 
-  const markBoardDom = () =>{
+  const endTurn = () =>{
+    if(currentPlayerMark === 'X'){
+      currentPlayerMark = 'O';
+    }else if(currentPlayerMark === 'O'){
+      currentPlayerMark = 'X';
+    }
+  };
+
+  const playerEvent = () =>{
+//Grab what player clicks => Trigger markBoard => remove EventListener after click
     for(let i= 0; i < gameBoardObject.gameboard.length; i++){
-        //console.log(gameBoardObject.gameboard[i]); //For event listener
+        //console.log(gameBoardObject.gameboard[i]); //Chk Event Listener
         gameBoardObject.gameboard[i].addEventListener('click', (e)=>{
-        console.log(e.target);
+          //console.log(gameBoardObject.gameboard[i]);
+          if(gameBoardObject.gameboard[i].innerHTML === ''){
+            gameBoardObject.gameboard[i].innerHTML = currentPlayerMark;
+            gameBoardObject.gameboard[i].removeEventListener('click',displayController.endTurn(),{once:true});
+          }else{
+            return false;
+          }
       });
       
     };
@@ -43,7 +58,8 @@ let displayController = (()=>{
   return{
     gameStart,
     currentPlayerMark,
-    markBoardDom
+    playerEvent,
+    endTurn
   };
 
 })();
@@ -51,5 +67,5 @@ let displayController = (()=>{
 
 gameBoardObject.displayBoard();
 displayController.gameStart();
-displayController.markBoardDom();
+displayController.playerEvent();
 
