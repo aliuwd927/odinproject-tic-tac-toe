@@ -18,7 +18,7 @@ let gameBoardObject = (()=>{
   return{
     displayBoard,
     gameboardContainer,
-    gameboard,
+    gameboard
   };
 })();
 
@@ -63,7 +63,6 @@ let displayController = (()=>{
   };
 
 })();
-
 
 gameBoardObject.displayBoard();
 displayController.gameStart();
