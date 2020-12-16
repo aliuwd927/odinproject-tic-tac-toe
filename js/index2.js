@@ -1,4 +1,4 @@
-let gameBoardObject = (()=>{
+const gameBoardObject = (()=>{
   const gameboardContainer = document.querySelector('.gameboard');
 
   let gameboard = [];
@@ -22,7 +22,7 @@ let gameBoardObject = (()=>{
   };
 })();
 
-let displayController = (()=>{
+const displayController = (()=>{
 //Idk how to start this LOL.
   let currentPlayerMark = 'X';
 
@@ -33,9 +33,11 @@ let displayController = (()=>{
   const endTurn = () =>{
     if(currentPlayerMark === 'X'){
       currentPlayerMark = 'O';
+      console.log(winnerObject.winningBoard + 'O  turn');
     }else if(currentPlayerMark === 'O'){
       currentPlayerMark = 'X';
-    }
+      console.log(winnerObject.winningBoard + 'X  turn');
+    };
   };
 
   const playerEvent = () =>{
@@ -49,7 +51,7 @@ let displayController = (()=>{
             gameBoardObject.gameboard[i].removeEventListener('click',displayController.endTurn(),{once:true});
           }else{
             return false;
-          }
+          };
       });
       
     };
@@ -64,7 +66,33 @@ let displayController = (()=>{
 
 })();
 
+const winnerObject = (()=>{
+  
+  const winningBoard = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,4,8],
+    [2,4,6],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8]
+  ];
+  
+  //pass info from player event into array to match winning board
+  let test = () =>{
+    console.log('test');
+  }
+
+
+  return{
+    winningBoard,
+    test
+  };
+})();
+
 gameBoardObject.displayBoard();
 displayController.gameStart();
 displayController.playerEvent();
+
 
