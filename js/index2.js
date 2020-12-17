@@ -1,8 +1,9 @@
 const gameBoardObject = (()=>{
   const gameboardContainer = document.querySelector('.gameboard');
-
+  //Javascript Game Board
   let gameboard = [];
-  
+
+  //create board on DOM
   const displayBoard = () =>{
     for(let i = 0; i < 9; i++){
       let items = [i];
@@ -22,7 +23,7 @@ const gameBoardObject = (()=>{
 })();
 
 const displayController = (()=>{
-//Player 1 always starts
+//Player 1 always starts first
   let currentPlayerMark = 'X';
 
   const gameStart = () =>{
@@ -80,17 +81,20 @@ const winnerObject = (()=>{
   const oArray = [];
 
   const winningBoard = [
+    //Horizontal Chk
     [0,1,2],
     [3,4,5],
     [6,7,8],
+    //Diagonal Chk
     [0,4,8],
     [2,4,6],
+    //Vertical Chk
     [0,3,6],
     [1,4,7],
     [2,5,8]
   ];
   
-  //pass info from player event into array to match winning board
+  //Pass info from player event into array to match winning board
   let chkWinningArray = () =>{
     console.log('test');
   }
