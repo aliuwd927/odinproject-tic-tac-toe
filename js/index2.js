@@ -25,20 +25,46 @@ const gameBoardObject = (()=>{
 let displayController = (()=>{
 //Player 1 always starts first
   let currentPlayerMark = 'X';
+ 
+  let playerX = 0;
+  let playerO = 0;
+  //Chk scores at 3,4,5
+  const roundX = () =>{
+    playerX++;
+    if(playerX === 3){
+      winnerObject.chkWinningArray();
+    }else if(playerX === 4){
+      winnerObject.chkWinningArray();
+    }else if(playerX === 5){
+      location.reload();
+      alert('Game Over');
+    };
+  };
 
-  let roundX = 0;
-  let roundO = 0;
+  const roundO = () =>{
+    playerO++;
+    if(playerO === 3){
+      winnerObject.chkWinningArray();
+    }else if(playerO === 4){
+      winnerObject.chkWinningArray();
+    }else if(playerO === 5){
+      for(let i = 0; i < gameBoardObject.gameboard.length; i++){
+        gameBoardObject.gameboard[i].innerHTML = '';
+      };
+      alert('Game Over');
+    };
+  };
 
-  let gameStart = () =>{
+  const gameStart = () =>{
   currentPlayerMark;   
   };
 
   const endTurn = () =>{
     if(currentPlayerMark === 'X'){
-      displayController.roundX++;
+      displayController.roundX();
       currentPlayerMark = 'O'; 
     }else if(currentPlayerMark === 'O'){
-      displayController.roundO++;
+      displayController.roundO();
       currentPlayerMark = 'X';
     };
   };
@@ -49,12 +75,7 @@ let displayController = (()=>{
         //console.log(gameBoardObject.gameboard[i]); //Chk Event Listener
         gameBoardObject.gameboard[i].addEventListener('click', (e)=>{
           //console.log(gameBoardObject.gameboard[i]); //Chk for access
-          
-          //Chk arry for winner with each click
-          for(let i = 0; i < gameBoardObject.gameboard.length; i++){
-            winnerObject.chkWinningArray();
-          };
-
+          //Push event into winnerObject to Logic for win
           if(gameBoardObject.gameboard[i].innerHTML === ''){
               if(currentPlayerMark === 'X'){
                 winnerObject.xArray.push(gameBoardObject.gameboard[i]);
@@ -77,13 +98,15 @@ let displayController = (()=>{
     playerEvent,
     endTurn,
     roundX,
-    roundO
+    roundO,
+    playerX,
+    playerO
   };
 
 })();
 
 const winnerObject = (()=>{
-  
+  //Player event gets pushed into xArray/oArray
   const xArray = [];
   const oArray = [];
 
@@ -104,6 +127,8 @@ const winnerObject = (()=>{
   //Pass info from player event into array to match winning board
   let chkWinningArray = () =>{
     //console.log('test');
+    //For loop to iterate and match xArray/oArray
+    
   }
 
 
