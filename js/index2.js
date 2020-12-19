@@ -22,18 +22,23 @@ const gameBoardObject = (()=>{
   };
 })();
 
-const displayController = (()=>{
+let displayController = (()=>{
 //Player 1 always starts first
   let currentPlayerMark = 'X';
 
-  const gameStart = () =>{
-  currentPlayerMark;
+  let roundX = 0;
+  let roundO = 0;
+
+  let gameStart = () =>{
+  currentPlayerMark;   
   };
 
   const endTurn = () =>{
     if(currentPlayerMark === 'X'){
+      displayController.roundX++;
       currentPlayerMark = 'O'; 
     }else if(currentPlayerMark === 'O'){
+      displayController.roundO++;
       currentPlayerMark = 'X';
     };
   };
@@ -70,7 +75,9 @@ const displayController = (()=>{
     gameStart,
     currentPlayerMark,
     playerEvent,
-    endTurn
+    endTurn,
+    roundX,
+    roundO
   };
 
 })();
@@ -96,7 +103,7 @@ const winnerObject = (()=>{
   
   //Pass info from player event into array to match winning board
   let chkWinningArray = () =>{
-    console.log('test');
+    //console.log('test');
   }
 
 
