@@ -127,9 +127,10 @@ const winnerObject = (()=>{
   //Pass info from player event into array to match winning board
   const chkWinningArrayX = () =>{
 
+    //Loop winningBoard, used filter and ind
     for(let i = 0; i < winningBoard.length; i ++){
-      let test = winningBoard[i];
-      if(xArray.filter(element => test.indexOf(element) !== -1).length === 3){
+      let wBX = winningBoard[i];
+      if(xArray.filter(element => wBX.indexOf(element) !== -1).length === 3){
         console.log('Y');
       };
     };
@@ -138,8 +139,8 @@ const winnerObject = (()=>{
   
   const chkWinningArrayO = () =>{
     for(let i = 0; i < winningBoard.length; i ++){
-      let test = winningBoard[i];
-      if(oArray.filter(element => test.indexOf(element) !== -1).length === 3){
+      let wBO = winningBoard[i];
+      if(oArray.filter(element => wBO.indexOf(element) !== -1).length === 3){
         console.log('Y');
       };
     };
