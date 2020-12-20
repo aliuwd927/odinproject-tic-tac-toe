@@ -145,7 +145,6 @@ const winnerObject = (()=>{
     };
   };
 
-
   return{
     winningBoard,
     chkWinningArrayX,
