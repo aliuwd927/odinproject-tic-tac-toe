@@ -158,7 +158,3 @@ const winnerObject = (()=>{
 gameBoardObject.displayBoard();
 displayController.gameStart();
 displayController.playerEvent();
-
-
-
-
