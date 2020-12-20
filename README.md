@@ -10,4 +10,8 @@ tic tac toe game
 - Using classList
 - removeEventListener
 - {once:true}
+<<<<<<< HEAD
 - return objects
+=======
+- return objects
+>>>>>>> 67e96a49c78e35e113d6789191310478407af3bf
