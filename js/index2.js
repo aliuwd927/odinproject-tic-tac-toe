@@ -131,7 +131,8 @@ const winnerObject = (()=>{
     for(let i = 0; i < winningBoard.length; i ++){
       let wBX = winningBoard[i];
       if(xArray.filter(element => wBX.indexOf(element) !== -1).length === 3){
-        console.log('Y');
+        location.reload();
+        alert('X Won');
       };
     };
    
@@ -141,7 +142,8 @@ const winnerObject = (()=>{
     for(let i = 0; i < winningBoard.length; i ++){
       let wBO = winningBoard[i];
       if(oArray.filter(element => wBO.indexOf(element) !== -1).length === 3){
-        console.log('Y');
+        location.reload();
+        alert('O Won');
       };
     };
   };
