@@ -78,9 +78,11 @@ const displayController = (()=>{
           //Push event into winnerObject to Logic for win
           if(gameBoardObject.gameboard[i].innerHTML === ''){
               if(currentPlayerMark === 'X'){
-                winnerObject.xArray.push(gameBoardObject.gameboard[i]);
+                winnerObject.xArray.push(Number(gameBoardObject.gameboard[i].classList[1]));
+                //winnerObject.xArray.push(gameBoardObject.gameboard[i]);
               }else if( currentPlayerMark === 'O'){
-                winnerObject.oArray.push(gameBoardObject.gameboard[i]);
+                winnerObject.oArray.push(Number(gameBoardObject.gameboard[i].classList[1]));
+                //winnerObject.oArray.push(gameBoardObject.gameboard[i]);
               };
             gameBoardObject.gameboard[i].innerHTML = currentPlayerMark;
             gameBoardObject.gameboard[i].removeEventListener('click',displayController.endTurn(),{once:true});
@@ -126,19 +128,18 @@ const winnerObject = (()=>{
   
   //Pass info from player event into array to match winning board
   const chkWinningArrayX = () =>{
-    console.log(winningBoard[0]);
-    //For loop to iterate and match xArray/oArray
-    for(let i = 0; i < xArray.length; i++){
-      console.log(xArray);
-    };
+    //console.log(xArray);
+    let test = winningBoard[5];
+    //xArray.filter(element => test.indexOf(element) !== -1);
+    //console.log(xArray.filter(element => test.indexOf(element) !== -1));
+    if(xArray.filter(element => test.indexOf(element) !== -1).length === 3){
+      console.log('Y');
+    }
+   
   };
   
   const chkWinningArrayO = () =>{
-    //console.log('test');
-    //For loop to iterate and match xArray/oArray
-    for(let i = 0; i < oArray.length; i++){
-      console.log(oArray);
-    };
+
   };
 
 
