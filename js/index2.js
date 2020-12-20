@@ -22,7 +22,7 @@ const gameBoardObject = (()=>{
   };
 })();
 
-let displayController = (()=>{
+const displayController = (()=>{
 //Player 1 always starts first
   let currentPlayerMark = 'X';
  
@@ -32,9 +32,9 @@ let displayController = (()=>{
   const roundX = () =>{
     playerX++;
     if(playerX === 3){
-      winnerObject.chkWinningArray();
+      winnerObject.chkWinningArrayX();
     }else if(playerX === 4){
-      winnerObject.chkWinningArray();
+      winnerObject.chkWinningArrayX();
     }else if(playerX === 5){
       location.reload();
       alert('Game Over');
@@ -44,9 +44,9 @@ let displayController = (()=>{
   const roundO = () =>{
     playerO++;
     if(playerO === 3){
-      winnerObject.chkWinningArray();
+      winnerObject.chkWinningArrayO();
     }else if(playerO === 4){
-      winnerObject.chkWinningArray();
+      winnerObject.chkWinningArrayO();
     }else if(playerO === 5){
       for(let i = 0; i < gameBoardObject.gameboard.length; i++){
         gameBoardObject.gameboard[i].innerHTML = '';
@@ -125,16 +125,27 @@ const winnerObject = (()=>{
   ];
   
   //Pass info from player event into array to match winning board
-  let chkWinningArray = () =>{
+  const chkWinningArrayX = () =>{
+    console.log(winningBoard[0]);
+    //For loop to iterate and match xArray/oArray
+    for(let i = 0; i < xArray.length; i++){
+      console.log(xArray);
+    };
+  };
+  
+  const chkWinningArrayO = () =>{
     //console.log('test');
     //For loop to iterate and match xArray/oArray
-    
-  }
+    for(let i = 0; i < oArray.length; i++){
+      console.log(oArray);
+    };
+  };
 
 
   return{
     winningBoard,
-    chkWinningArray,
+    chkWinningArrayX,
+    chkWinningArrayO,
     xArray,
     oArray
   };
